@@ -44,6 +44,9 @@ public class LoginTest extends BaseTest {
         loginPage.enterUsername("nxttester");  // Replace with valid username
         loginPage.enterPassword("nxt#qA@23");  // Replace with valid password
         loginPage.clickLogin();
-
+        
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        Assert.assertTrue(dashboardPage.verifyDashboardPage(), "Dashboard");
+    }
     }
 }
