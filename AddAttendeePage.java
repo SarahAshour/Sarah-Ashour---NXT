@@ -27,3 +27,28 @@ public class AddAttendeePage {
         driver.findElement(save).click();
     }
 }
+
+package tests;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pages.AddAttendeePage;
+import pages.LoginPage;
+
+public class AddAttendeeTest extends BaseTest {
+
+    @Test
+    public void addAttendeeTest() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.enterUsername("nxttester");
+        loginPage.enterPassword("nxt#qA@23");
+        loginPage.clickLogin();
+
+        AddAttendeePage addAttendeePage = new AddAttendeePage(driver);
+        addAttendeePage.clickAddAttendee();
+        addAttendeePage.enterAttendeeDetails("John Doe");
+        addAttendeePage.submitAttendee();
+
+        // Add assertion for successful addition, such as checking attendee list or confirmation message
+    }
+}
